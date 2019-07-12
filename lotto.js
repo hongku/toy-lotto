@@ -1,5 +1,6 @@
 const lotto = {
   btn: document.getElementById('js-create-number'),
+  multiBtn: document.getElementById('js-multi-number'),
   createNumberRange() {
     const min = 1, max = 45;
     let nums = [];
@@ -55,9 +56,9 @@ const lotto = {
 
     return getFormatDate(date);
   },
-  printDate() {
+  printDate(name) {
     const date = this.getPublishDate();
-    const target = document.querySelector('.publish_date');
+    const target = document.querySelector(name);
 
     if (!target.classList.contains('on')) {
       target.classList.add('on');
@@ -67,7 +68,7 @@ const lotto = {
   printNumber() {
     const nums = this.createNumber();
     const target = document.querySelector('.number_list');
-    const target2 = document.querySelector('.game_item');
+    const target2 = document.querySelector('.js-only-paper .game_item');
     const printTarget = [...target.children];
     const paperTarget = [...target2.children];
     
@@ -85,14 +86,72 @@ const lotto = {
       paperTarget[i].innerHTML = nums[i - 2];
     }
   },
+  printMultiNumber() {
+    const target = document.querySelector('.js-multi-paper .paper_body');
+    const paperTarget = [...target.children];
+    let nums = [];
+    for (let i = 0; i < 5; i++) {
+      nums.push(this.createNumber());
+    }
+    
+    document.querySelector('.js-multi-paper').classList.add('play');
+    setTimeout(() => {
+      document.querySelector('.js-multi-paper').classList.remove('play');
+    },1000);
+
+    paperTarget.forEach((item, index, arr) => {
+      let printTarget = [...item.children]
+
+      for (let j = 2; j < printTarget.length; j++) {
+        printTarget[j].innerHTML = nums[index][j - 2];
+      }
+    });
+  },
   init() {
     const btn = this.btn;
+    const multiBtn = this.multiBtn;
 
     btn.addEventListener('click', () => {
       this.printNumber();
-      this.printDate();
+      this.printDate('.publish_date');
+    });
+    multiBtn.addEventListener('click', () => {
+      this.printMultiNumber();
+      this.printDate('.publish_date2');
     });
   }
-}
+};
+
+const lottoSlide = () => {
+  const slideItem = [...document.querySelectorAll('.slide_item')]
+  const nextBtn = document.getElementById('js-slide-next');
+  const prevBtn = document.getElementById('js-slide-prev');
+
+  nextBtn.addEventListener('click', slideChange);
+  prevBtn.addEventListener('click', slideChange);
+  
+  function slideChange() {
+    let id = this.getAttribute('id').split('-')[2];
+    let currentSlide;
+    slideItem.forEach(item => {
+      if (item.classList.contains('active')) {
+        currentSlide = item;
+      }
+    });
+    let currentIndex = slideItem.indexOf(currentSlide);
+
+    slideItem.forEach(item => item.classList.remove('active'));
+    if (id === 'next') {
+      slideItem[currentIndex + 1].classList.add('active');
+      this.classList.add('hide');
+      prevBtn.classList.remove('hide');
+    } else if (id === 'prev') {
+      slideItem[currentIndex - 1].classList.add('active');
+      this.classList.add('hide');
+      nextBtn.classList.remove('hide');
+    }
+  }
+};
 
 lotto.init();
+lottoSlide();

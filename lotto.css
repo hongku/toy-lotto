@@ -46,32 +46,50 @@ table {
 
 /* lotto.css */
 #content {
+  position: relative;
   max-width: 960px;
   margin: 100px auto 0; padding: 0 5%;
+}
+.hide {
+  display: none;
 }
 .title {
   font-size: 50px; font-weight: bold;
   text-align: center;
 }
-.tab_navi {
-  overflow: hidden;
-  margin-top: 100px;
-}
-.tab_navi button {
-  float: left;
-  width: 50%; height: 40px;
-  font-size: 16px; font-weight: bold;
-  background: none;
-  cursor: pointer;
-}
-.tab_pannel {
-  margin-top: 10px;
-}
-.tab_pannel .tab_content {
+.lotto_slide .slide_item {
   display: none;
+  animation: fade 1s ease;
 }
-.tab_pannel .tab_content.active {
+.lotto_slide .slide_item.active {
   display: block;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.lotto_slide .btn_change {
+  position: absolute;
+  top: 5px;
+  width: 48px; height: 48px;
+  text-indent: -9999px;
+  border: 0;
+  cursor: pointer;
+  z-index: 99;
+}
+.lotto_slide .btn_change.right {
+  right: 28%;
+  background: url(./asset/arr-right.png) no-repeat center;
+  background-size: cover;
+}
+.lotto_slide .btn_change.left {
+  left: 28%;
+  background: url(./asset/arr-left.png) no-repeat center;
+  background-size: cover;
 }
 .number_view {
   margin-top: 30px; padding: 30px 5%;
@@ -151,11 +169,11 @@ table {
   background-size: cover;
   vertical-align: middle;
 }
-.lotto_paper .paper_head .publish_date {
+.lotto_paper .paper_head [class*="publish_date"] {
   display: none;
   margin-top: 5px;
 }
-.lotto_paper .paper_head .publish_date.on {
+.lotto_paper .paper_head [class*="publish_date"].on {
   display: block;
 }
 .lotto_paper .paper_body {
@@ -215,4 +233,22 @@ table {
   background: url(./asset/img-ball.png) no-repeat center;
   background-size: cover;
   vertical-align: text-top;
+}
+
+@media screen and (max-width: 768px) {
+  .lotto_slide .btn_change {
+    top: 12px;
+    transform: translateY(0);
+    width: 32px; height: 32px;
+  }
+  .lotto_slide .btn_change.right {
+    right: 5%;
+  }
+  .lotto_slide .btn_change.left {
+    left: 5%;
+  }
+  .number_list li {
+    width: 40px; height: 40px;
+    line-height: 42px;
+  }
 }

@@ -10,26 +10,11 @@
 <body>
   <div id="content">
     <h1 class="title">L<i class="ico_ball">O</i>TT<i class="ico_ball">O</i></h1>
-    <div class="number_view">
-      <ul class="number_list">
-        <li>?</li>
-        <li>?</li>
-        <li>?</li>
-        <li>?</li>
-        <li>?</li>
-        <li>?</li>
-      </ul>
-    </div>
-    <div class="lotto_view">
-      <div class="lotto_paper js-only-paper">
-        <div class="paper_head">
-          <h2>Lotto 6/45</h2>
-          <p class="publish_date">발행일 : 2019/07/11 (목) 09:46:22</p>
-        </div>
-        <div class="paper_body">
-          <ul class="game_item">
-            <li class="game_name">A</li>
-            <li class="game_kind">자동</li>
+    <div class="lotto_slide">
+      <button type="button" id="js-slide-prev" class="btn_change left hide">1,000원 추첨</button>
+      <div class="slide_item active">
+        <div class="number_view">
+          <ul class="number_list">
             <li>?</li>
             <li>?</li>
             <li>?</li>
@@ -38,14 +23,104 @@
             <li>?</li>
           </ul>
         </div>
-        <div class="paper_foot">
-          <span>금액</span>
-          <strong>1,000원</strong>
+        <div class="lotto_view">
+          <div class="lotto_paper js-only-paper">
+            <div class="paper_head">
+              <h2>Lotto 6/45</h2>
+              <p class="publish_date">발행일 : 2019/07/11 (목) 09:46:22</p>
+            </div>
+            <div class="paper_body">
+              <ul class="game_item">
+                <li class="game_name">A</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+            </div>
+            <div class="paper_foot">
+              <span>금액</span>
+              <strong>1,000원</strong>
+            </div>
+          </div>
+        </div>
+        <div class="btn_box">
+          <button type="button" id="js-create-number" class="btn_create">추첨하기</button>
         </div>
       </div>
-    </div>
-    <div class="btn_box">
-      <button type="button" id="js-create-number" class="btn_create">추첨하기</button>
+      <div class="slide_item">
+        <div class="lotto_view">
+          <div class="lotto_paper js-multi-paper">
+            <div class="paper_head">
+              <h2>Lotto 6/45</h2>
+              <p class="publish_date2">발행일 : 2019/07/11 (목) 09:46:22</p>
+            </div>
+            <div class="paper_body">
+              <ul class="game_item">
+                <li class="game_name">A</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+              <ul class="game_item">
+                <li class="game_name">B</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+              <ul class="game_item">
+                <li class="game_name">C</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+              <ul class="game_item">
+                <li class="game_name">D</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+              <ul class="game_item">
+                <li class="game_name">E</li>
+                <li class="game_kind">자동</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>
+            </div>
+            <div class="paper_foot">
+              <span>금액</span>
+              <strong>5,000원</strong>
+            </div>
+          </div>
+        </div>
+        <div class="btn_box">
+          <button type="button" id="js-multi-number" class="btn_create">추첨하기</button>
+        </div>
+      </div>
+      <button type="button" id="js-slide-next" class="btn_change right">5,000원 추첨</button>
     </div>
 
   </div>
