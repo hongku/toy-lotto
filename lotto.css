@@ -182,12 +182,16 @@ table {
   border-bottom: 1px dotted #000;
 }
 .lotto_paper .paper_body .game_item {
-  display: flex;
-  justify-content: space-around;
+  overflow: hidden;
   margin-top: 10px;
 }
 .lotto_paper .paper_body .game_item:first-child {
   margin-top: 0;
+}
+.lotto_paper .paper_body .game_item li {
+  float: left;
+  width: calc(100% / 8);
+  text-align: center;
 }
 .lotto_paper .paper_foot {
   margin-top: 15px; padding: 0 10px;
