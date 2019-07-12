@@ -98,7 +98,7 @@ table {
 }
 .number_list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .number_list li {
   width: 50px; height: 50px;
